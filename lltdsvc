@@ -1,0 +1,9 @@
+describe wmi({
+  class: 'win32_service',
+  filter: "name like '%lltdsvc%'"
+}) do
+  its('Status') { should cmp 'ok' }
+  its('State') { should cmp 'Running' }
+  its('ExitCode') { should cmp 0 }
+  its('DisplayName') { should eq 'Link-Layer Topology Discovery Mapper'}
+end

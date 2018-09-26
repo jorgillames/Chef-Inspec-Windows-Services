@@ -1,0 +1,9 @@
+describe wmi({
+  class: 'win32_service',
+  filter: "name like '%NlaSvc%'"
+}) do
+  its('Status') { should cmp 'ok' }
+  its('State') { should cmp 'Running' }
+  its('ExitCode') { should cmp 0 }
+  its('DisplayName') { should eq 'Network Location Awareness'}
+end

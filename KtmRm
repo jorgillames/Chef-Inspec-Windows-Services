@@ -1,0 +1,9 @@
+describe wmi({
+  class: 'win32_service',
+  filter: "name like '%KtmRm%'"
+}) do
+  its('Status') { should cmp 'ok' }
+  its('State') { should cmp 'Running' }
+  its('ExitCode') { should cmp 0 }
+  its('DisplayName') { should eq 'KtmRm for Distributed Transaction Coordinator'}
+end
